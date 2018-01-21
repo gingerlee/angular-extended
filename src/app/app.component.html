@@ -1,0 +1,72 @@
+<!--ADDED ABOUT SECTION-->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="">Epicodus Tunes</a>
+      <!--<a class="navbar-brand" routerLink="">Epicodus Tunes</a> will navigate to our index. When this link is clicked, the router will search its appRoutes array for the route whose path matches the path provided in this link, an empty string "":
+
+      (const appRoutes: Routes = [
+        {
+           path: '',
+           component: WelcomeComponent
+         },
+
+      Once it locates this route, it will load the WelcomeComponent into the <router-outlet></router-outlet> tags.
+
+      Similarly, <a routerLink="about">About</a> will navigate to our about route. When clicked, the router will search appRoutes for the about path and then load the AboutComponent in our <router-outlet></router-outlet> tags.) -->
+
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="about">About</a></li>
+      <!--To link to a new route, we use an <a> tag with a special attribute called routerLink. Including this attribute invokes our router so that it can load the correct component.-->
+      <li><a routerLink="marketplace">Marketplace</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>{{title}}</h1>
+  <router-outlet></router-outlet>
+</div>
+
+<!--***********Now we can build and serve our application and successfully navigate between the two routes. We can select "About" from our navbar and see our AboutComponent's content at localhost:4200/about. We can also click "Epicodus Tunes" in our navbar to navigate back to the homepage, where we see our WelcomeComponent's content at localhost:4200.*************-->
+
+
+
+<!-- <div class="container">
+  <h1>{{title}}</h1>
+  <router-outlet></router-outlet>
+</div> -->
+
+<!--FIFTH and final we need to update our root AppComponent. We must designate where the router should load content for our different routes.
+
+For instance, we told our router to load the WelcomeComponent when the user visits the root path at localhost:4200/. We need to tell Angular where the WelcomeComponent should be rendered.
+
+We do this with a special tag called <router-outlet>. This tag denotes exactly where a route's components will be rendered. Let's place <router-outlet></router-outlet> tags in our root component's template now.
+
+(Remember, our components' templates now reside in separate files!)  -->
+
+
+
+
+
+<!--The content below is the default placeholder when new Angular project is created.-->
+<!-- <div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul> -->
