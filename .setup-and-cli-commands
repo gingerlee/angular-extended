@@ -1,4 +1,9 @@
+ATOM PACKAGES: ----------------------->
+  platformio-ide-terminal
+  icon???
+
 SETUP: -------------------------->
+  ng new //project name//
   git init
   bower init
 
@@ -18,7 +23,7 @@ SETUP: -------------------------->
 
 ANGULAR CLI COMMANDS: ---------------------->
 
-ng serve
+ng serve --open
   to launch our project in Chrome.
   Ctrl + C to stop serving
   * Adding new packages or changing any configuration will require a server restart before changes are reflected in the application. Whenever you experience a bug or other issue, re-starting the server should be one of your first troubleshooting steps. *
