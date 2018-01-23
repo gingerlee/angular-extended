@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Album } from './album.model';
-import { ALBUMS } from './mock-albums';
 // Albums at the top of the file. This will allow our service access to both our Album model, and the actual list of Album objects from our mock-albums.ts file:
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
@@ -25,13 +24,24 @@ export class AlbumService {
   getAlbums() {
     return this.albums;
   }
-// We must define a method responsible for retrieving the Albums from the list in mock-albums.ts, so the service may provide this information wherever it's injected.
-  getAlbumById(albumId: number){
-    // for (var i = 0; i < ALBUMS.length; i++) {
-    //   if (ALBUMS[i].id === albumId) {
-    //     return ALBUMS[i];
-    //   }
-    // }
+  // We must define a method responsible for retrieving the Albums from the list in mock-albums.ts, so the service may provide this information wherever it's injected.
+
+  addAlbum(newAlbum: Album) {
+    this.albums.push(newAlbum);
+  }
+  // Here, the addAlbum() method refers to the this.albums defined in the service's constructor. this.albums refers to the specific area of our database where our list of Albums is stored.
+  // Because this.albums is a FirebaseListObservable<any[]>, as declared at the top of the file, it has many of the same properties and capabilities of any other list or array. We can simply call push() on it to add our new album to the list.
+
+
+  getAlbumById(albumId: string){
+    return this.database.object('albums/' + albumId);
+    // Notice albumId is now a string, not a number. Firebase keys are strings.
+    //
+    // Additionally, we're now calling this.database.object() instead of .list(). This is because we're requesting only a single object from Firebase, not an entire list.
+    //
+    // We're also including albumId as an argument to the object() method. This is because we need to tell Firebase where to look for our object. Remember, each database entry is located under its key. All entries are also nested in a larger albums table. Therefore we specify "albums/" as the location. This prompts Firebase to look in our Albums list, for the Album residing under whatever key we provide this method.
+
+
   }
 // Here, we've defined a getAlbumById() method that takes the id of the Album we're seeking as a parameter. It simply loops through all Albums in our ALBUMS constant, and returns the one with the id we're looking for.
 }

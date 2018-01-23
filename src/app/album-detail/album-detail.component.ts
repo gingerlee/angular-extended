@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Album } from '../album.model';
 import { AlbumService } from '../album.service';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 
 // * ActivatedRoute contains information about a route associated with a component loaded in an outlet. This is required for dynamic routing.
@@ -19,9 +20,13 @@ import { AlbumService } from '../album.service';
   styleUrls: ['./album-detail.component.css'],
   providers: [AlbumService]
 })
-export class AlbumDetailComponent implements OnInit {
-  albumId: number;
-  albumToDisplay: Album;
+  export class AlbumDetailComponent implements OnInit {
+    // * The constructor provides an instance of ActivatedRoute, Location and AlbumService to the AlbumDetailComponent.
+    // * Then, in ngOnInit() we parse the parameters sent with the route, and gather the value placed in the :id dynamic segment of the URL in the line this.albumId = parseInt(urlParameters['id']);.
+    // * We call the AlbumService's getAlbumById() method, providing the id from the URL.
+    // * Finally, the service uses this id to locate and return the Album to display on the detail page.
+    albumId: string;
+    albumToDisplay;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,13 +38,15 @@ export class AlbumDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.albumId = parseInt(urlParameters['id']);
-    });
-    this.albumToDisplay = this.albumService.getAlbumById(this.albumId);
+     this.albumId = urlParameters['id'];
+   });
+   this.albumToDisplay = this.albumService.getAlbumById(this.albumId);
+  }
+
     // method to retrieve the album AlbumDetailComponent should display from the service, using its new getAlbumById() method:
     // This method passes our albumId property into our new getAlbumById method in our service, which returns the album we're interested in so that we can store it in the Album Details Component property albumToDisplay.
-  }
 }
+
 
 // Here's what this code does:
 

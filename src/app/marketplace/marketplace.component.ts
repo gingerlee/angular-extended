@@ -23,8 +23,10 @@ export class MarketplaceComponent implements OnInit {
     this.albums = this.albumService.getAlbums();
   }
 
-  goToDetailPage(clickedAlbum: Album) {
-    //  this.router.navigate(['albums', clickedAlbum.id]);
+  goToDetailPage(clickedAlbum) {
+    this.router.navigate(['albums', clickedAlbum.$key]);
+    // When Firebase returns data to our application, like the list of Albums in our MarketplaceComponent it adds an extra property to each item. This property is called "$key", and it contains the Firebase key that corresponds to that item's entry in the database.
+    // We're simply placing the Firebase $key in the :id dynamic segment, instead of the now-defunct id property from our Album model. When this line of code runs, the router will match this request to the albums/:id route, and load the corresponding AlbumDetailComponent.
   };
 // When triggered, this method will gather the router instance provided in the constructor and call the built-in navigate() method on it, providing an array as an argument. The array contains the string 'albums' and clickedAlbum.id.
 }
