@@ -5,6 +5,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent }   from './about/about.component';
 import { MarketplaceComponent }   from './marketplace/marketplace.component';
 import { AlbumDetailComponent }   from './album-detail/album-detail.component';
+import { AdminComponent }   from './admin/admin.component';
 
 // The ModuleWithProviders package from the Angular core helps provide our router to the rest of the application. We'll learn about "providers" in detail in an upcoming lesson when we discuss something called dependency injection.
 //
@@ -28,8 +29,12 @@ const appRoutes: Routes = [
   {
     path: 'albums/:id',
     component: AlbumDetailComponent
-  }
+  },
 // Notice the dynamic :id segment in the route's path property above. By including the : before id we make the last portion of the path a variable instead of a literal string. :id will be replaced with the id number of the Album whose details we're viewing.
+  {
+    path: 'admin',
+    component: AdminComponent
+  }
 ];
 // AppRoutes will contain the master list of all available routes in our application.
 

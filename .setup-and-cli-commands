@@ -42,4 +42,50 @@ ng g pipe //pipe-name//
 ng g class //class-name//.model
   Creates a new class to use as a model.
 
+ng g service //name//
+  Creates a new service file.
+
 ******* For More https://cli.angular.io/reference.pdf *******
+
+
+*********FIREBASE********************
+SETUP---------------->
+  npm install firebase angularfire2 --save
+    ***If you receive errors, try updating the versions specified by
+    changing in package.json
+      "angularfire2": "4.0.0-rc.0",
+      "firebase": "^3.6.6",
+    then run npm install to refresh package-lock.json
+
+
+  tsconfig.json
+    "types": [ "firebase" ]
+
+  touch api-keys.ts
+
+  api-keys.ts
+    export var masterFirebaseConfig = {
+      apiKey: "xxxx",
+      authDomain: "xxxx.firebaseapp.com",
+      databaseURL: "https://xxxx.firebaseio.com",
+      storageBucket: "xxxx.appspot.com",
+      messagingSenderId: "xxxx"
+    };
+
+    .gitignore
+      #Firebase credentials
+      /src/app/api-keys.ts
+
+    Visit our Firebase Console once more, and select our project's name from the list.
+    Then, we'll visit the Database area by selecting the Database option from the navbar on the left-hand side.
+    Near the top of the page, there should be a blue navbar reading Realtime Database. Below this, select the option that reads RULES.
+    Change both the ".read", and ".write" properties here to "true", as seen below, then click Publish:
+
+      {
+        "rules": {
+          ".read": "true",
+          ".write": "true"
+        }
+      }
+
+    
