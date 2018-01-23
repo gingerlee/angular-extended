@@ -24,7 +24,7 @@ export class MarketplaceComponent implements OnInit {
   }
 
   goToDetailPage(clickedAlbum: Album) {
-     this.router.navigate(['albums', clickedAlbum.id]);
+    //  this.router.navigate(['albums', clickedAlbum.id]);
   };
 // When triggered, this method will gather the router instance provided in the constructor and call the built-in navigate() method on it, providing an array as an argument. The array contains the string 'albums' and clickedAlbum.id.
 }

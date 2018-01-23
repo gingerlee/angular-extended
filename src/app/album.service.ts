@@ -27,11 +27,11 @@ export class AlbumService {
   }
 // We must define a method responsible for retrieving the Albums from the list in mock-albums.ts, so the service may provide this information wherever it's injected.
   getAlbumById(albumId: number){
-    for (var i = 0; i < ALBUMS.length; i++) {
-      if (ALBUMS[i].id === albumId) {
-        return ALBUMS[i];
-      }
-    }
+    // for (var i = 0; i < ALBUMS.length; i++) {
+    //   if (ALBUMS[i].id === albumId) {
+    //     return ALBUMS[i];
+    //   }
+    // }
   }
 // Here, we've defined a getAlbumById() method that takes the id of the Album we're seeking as a parameter. It simply loops through all Albums in our ALBUMS constant, and returns the one with the id we're looking for.
 }
